@@ -1,17 +1,5 @@
 
-import { MotionValue, useSpring, useTransform } from 'framer-motion';
-
-export const useAppleSpring = (value: MotionValue<number>) => {
-  return useSpring(value, {
-    stiffness: 300,
-    damping: 30,
-    mass: 1,
-  });
-};
-
-export const useScaleOnScroll = (scrollY: MotionValue<number>, inputRange: number[], outputRange: number[]) => {
-  return useTransform(scrollY, inputRange, outputRange);
-};
+// Animation utility functions without framer-motion dependency
 
 export const springConfig = {
   type: 'spring',
