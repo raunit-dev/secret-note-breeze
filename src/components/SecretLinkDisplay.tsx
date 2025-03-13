@@ -30,11 +30,11 @@ const SecretLinkDisplay: React.FC<SecretLinkDisplayProps> = ({ id, token, expira
   };
   
   return (
-    <div className="animate-scale-in">
-      <Card className="overflow-hidden border-border/50 shadow-apple gradient-border glow-sm">
-        <div className="bg-gradient-to-r from-primary/10 to-accent/10 px-6 py-4 border-b border-border/30">
+    <div>
+      <Card>
+        <div className="px-6 py-4 border-b">
           <div className="flex items-center space-x-2 text-primary">
-            <Link2 className="h-5 w-5 glow-sm" />
+            <Link2 className="h-5 w-5" />
             <h3 className="font-medium">Your Secret Note Link</h3>
           </div>
         </div>
@@ -51,26 +51,26 @@ const SecretLinkDisplay: React.FC<SecretLinkDisplayProps> = ({ id, token, expira
               <Input
                 value={secretLink}
                 readOnly
-                className="font-mono text-sm bg-muted/40 border-border/50 hover:glow-sm transition-shadow duration-300"
+                className="font-mono text-sm"
               />
               <Button
                 size="icon"
                 variant="outline"
                 onClick={handleCopy}
-                className="shrink-0 transition-all duration-200 hover:glow-accent-sm border-border/50"
+                className="shrink-0"
               >
                 {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
               </Button>
             </div>
           </div>
           
-          <div className="rounded-md bg-muted/30 border border-primary/30 p-3 text-sm text-foreground/90 glow-sm">
+          <div className="rounded-md bg-muted p-3 text-sm text-foreground/90">
             <p>This link grants access to your note. Keep it secure and share it only with trusted recipients.</p>
           </div>
           
           <Button
             variant="default"
-            className="w-full transition-all duration-300 bg-gradient-to-r from-primary to-accent hover:glow-md"
+            className="w-full"
             onClick={handleCopy}
           >
             {copied ? 'Copied!' : 'Copy Link'}

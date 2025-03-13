@@ -37,8 +37,10 @@ export const NoteProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const fetchNote = async (id: string, token?: string) => {
     try {
+      console.log("NoteContext: Fetching note with id:", id, "and token:", token);
       setIsLoading(true);
       const note = await getNote(id, token);
+      console.log("NoteContext: Note retrieved:", note);
       setCurrentNote(note);
       if (!note) {
         toast.error('Note not found or expired');

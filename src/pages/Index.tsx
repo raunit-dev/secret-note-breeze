@@ -7,8 +7,8 @@ const Index = () => {
   return (
     <Layout>
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12 animate-slide-up">
-          <h1 className="text-4xl font-medium tracking-tight mb-4 jitter-effect glow-md">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-medium tracking-tight mb-4">
             Share notes securely
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

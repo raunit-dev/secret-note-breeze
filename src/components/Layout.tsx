@@ -10,31 +10,25 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <div className="bg-gradient-to-r from-primary to-accent py-2 text-center animate-glow-pulse">
-        <p className="font-mono font-bold text-foreground tracking-wide glow-sm">
-          Made with Hate by Raunit
-        </p>
-      </div>
-      
-      <header className="sticky top-0 z-10 w-full backdrop-blur-apple bg-background/80 border-b border-border/50">
+      <header className="w-full border-b border-border">
         <div className="container mx-auto py-4 px-4 sm:px-6 flex items-center justify-between">
           <Link 
             to="/" 
-            className="flex items-center space-x-2 transition-opacity duration-200 hover:opacity-80"
+            className="flex items-center space-x-2"
           >
-            <LockIcon className="h-5 w-5 text-primary glow-sm" />
-            <span className="font-medium text-lg jitter-effect">SecretNote</span>
+            <LockIcon className="h-5 w-5 text-primary" />
+            <span className="font-medium text-lg">SecretNote</span>
           </Link>
           <nav className="flex items-center space-x-6">
             <Link 
               to="/" 
-              className="text-sm font-medium text-foreground/80 transition-colors duration-200 hover:text-foreground hover:glow-sm"
+              className="text-sm font-medium text-foreground/80 hover:text-foreground"
             >
               Create
             </Link>
             <Link 
               to="/about" 
-              className="text-sm font-medium text-foreground/80 transition-colors duration-200 hover:text-foreground hover:glow-sm"
+              className="text-sm font-medium text-foreground/80 hover:text-foreground"
             >
               About
             </Link>
@@ -48,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
       </main>
       
-      <footer className="w-full border-t border-border/50 py-6">
+      <footer className="w-full border-t border-border py-6">
         <div className="container mx-auto px-4 sm:px-6 text-center text-sm text-muted-foreground">
           <p>SecretNote — Share notes securely with automatic expiration</p>
         </div>
