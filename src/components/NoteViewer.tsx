@@ -29,10 +29,10 @@ const NoteViewer: React.FC = () => {
   if (isLoading) {
     return (
       <div className="max-w-2xl mx-auto py-20 text-center">
-        <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm mb-4 animate-pulse">
+        <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 text-primary text-sm mb-4 animate-pulse glow-sm">
           Decrypting Note
         </div>
-        <div className="text-xl font-medium animate-pulse">Loading secure content...</div>
+        <div className="text-xl font-medium animate-pulse glow-sm">Loading secure content...</div>
       </div>
     );
   }
@@ -40,10 +40,10 @@ const NoteViewer: React.FC = () => {
   if (!currentNote) {
     return (
       <div className="max-w-2xl mx-auto animate-scale-in">
-        <Card className="border-border/50 shadow-apple text-center overflow-hidden">
+        <Card className="border-border/50 shadow-apple text-center overflow-hidden gradient-border glow-sm">
           <CardHeader className="bg-destructive/10 border-b border-border/30">
             <div className="flex justify-center">
-              <ShieldAlert className="h-6 w-6 text-destructive mb-2" />
+              <ShieldAlert className="h-6 w-6 text-destructive mb-2 glow-sm" />
             </div>
             <CardTitle className="text-lg font-medium">Note Not Found</CardTitle>
           </CardHeader>
@@ -51,7 +51,9 @@ const NoteViewer: React.FC = () => {
             <p className="text-muted-foreground mb-6">
               This note may have expired or been deleted, or you might not have the correct access token.
             </p>
-            <Button onClick={goBack}>Return to Home</Button>
+            <Button onClick={goBack} className="bg-gradient-to-r from-primary to-accent hover:glow-md transition-all duration-300">
+              Return to Home
+            </Button>
           </CardContent>
         </Card>
       </div>
@@ -60,11 +62,11 @@ const NoteViewer: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto animate-scale-in">
-      <Card className="border-border/50 shadow-apple overflow-hidden">
-        <CardHeader className="bg-primary/5 border-b border-border/30">
+      <Card className="border-border/50 shadow-apple overflow-hidden gradient-border glow-sm">
+        <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border/30">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Eye className="h-5 w-5 text-primary" />
+              <Eye className="h-5 w-5 text-primary glow-sm" />
               <CardTitle className="text-lg font-medium">Secure Note</CardTitle>
             </div>
             <div className="flex items-center text-xs text-muted-foreground">
@@ -74,16 +76,16 @@ const NoteViewer: React.FC = () => {
           </div>
         </CardHeader>
         <CardContent className="p-6">
-          <div className="rounded-md bg-secondary/50 p-4 min-h-[200px] whitespace-pre-wrap">
+          <div className="rounded-md bg-muted/30 p-4 min-h-[200px] whitespace-pre-wrap font-mono border border-border/50 glow-sm">
             {currentNote.content}
           </div>
         </CardContent>
-        <CardFooter className="bg-secondary/30 px-6 py-4 border-t border-border/30 flex flex-col sm:flex-row gap-4 items:center justify-between">
+        <CardFooter className="bg-muted/30 px-6 py-4 border-t border-border/30 flex flex-col sm:flex-row gap-4 items:center justify-between">
           <div className="flex items-center text-sm text-muted-foreground">
             <EyeOff className="h-4 w-4 mr-2" />
             <span>This note will be deleted after viewing</span>
           </div>
-          <Button variant="outline" onClick={goBack} className="transition-all duration-200 hover:bg-primary/5 hover:border-primary/30">
+          <Button variant="outline" onClick={goBack} className="transition-all duration-200 hover:glow-accent-sm border-border/50">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Create New Note
           </Button>

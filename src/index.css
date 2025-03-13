@@ -1,37 +1,39 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 30% 98%;
-    --foreground: 220 20% 12%;
+    --background: 230 20% 10%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 20% 10%;
+    --card: 230 20% 13%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 20% 10%;
+    --popover: 230 20% 13%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 50%;
+    --primary: 266 100% 64%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 220 20% 12%;
+    --secondary: 217 76% 83%;
+    --secondary-foreground: 230 20% 10%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 230 20% 20%;
+    --muted-foreground: 230 10% 70%;
 
-    --accent: 210 20% 96%;
-    --accent-foreground: 220 20% 12%;
+    --accent: 286 100% 75%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 90%;
-    --input: 220 20% 90%;
-    --ring: 210 100% 50%;
+    --border: 230 20% 18%;
+    --input: 230 20% 18%;
+    --ring: 266 100% 64%;
 
     --radius: 0.75rem;
   }
@@ -57,7 +59,7 @@
 
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-lg border border-white/50 shadow-apple;
+    @apply bg-background/80 backdrop-blur-lg border border-white/10 shadow-apple;
   }
   
   .focus-ring {
@@ -71,6 +73,45 @@
   .page-transition {
     @apply animate-scale-in;
   }
+  
+  .glow-sm {
+    @apply shadow-[0_0_10px_theme(colors.primary.DEFAULT/30),0_0_5px_theme(colors.primary.DEFAULT/20)];
+  }
+  
+  .glow-md {
+    @apply shadow-[0_0_15px_theme(colors.primary.DEFAULT/40),0_0_8px_theme(colors.primary.DEFAULT/30)];
+  }
+  
+  .glow-lg {
+    @apply shadow-[0_0_25px_theme(colors.primary.DEFAULT/50),0_0_12px_theme(colors.primary.DEFAULT/40)];
+  }
+  
+  .glow-accent-sm {
+    @apply shadow-[0_0_10px_theme(colors.accent.DEFAULT/30),0_0_5px_theme(colors.accent.DEFAULT/20)];
+  }
+  
+  .glow-accent-md {
+    @apply shadow-[0_0_15px_theme(colors.accent.DEFAULT/40),0_0_8px_theme(colors.accent.DEFAULT/30)];
+  }
+  
+  .jitter-effect {
+    animation: jitter 0.15s infinite alternate;
+  }
+  
+  .gradient-border {
+    @apply relative border-0;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 -z-10 rounded-lg p-[1px] bg-gradient-to-r from-primary to-accent opacity-70;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+  
+  .monospace {
+    font-family: 'Space Mono', monospace;
+  }
 }
 
 /* Smooth scrolling */
@@ -82,3 +123,22 @@ html {
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+@keyframes jitter {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(0.5px, 0.3px) rotate(0.3deg);
+  }
+  50% {
+    transform: translate(-0.5px, -0.2px) rotate(-0.2deg);
+  }
+  75% {
+    transform: translate(0.3px, -0.5px) rotate(0.3deg);
+  }
+  100% {
+    transform: translate(-0.3px, 0.5px) rotate(-0.3deg);
+  }
+}
+

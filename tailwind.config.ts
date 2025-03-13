@@ -25,7 +25,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['SF Pro Display', 'system-ui', 'sans-serif'],
-        mono: ['SF Mono', 'monospace'],
+        mono: ['Space Mono', 'monospace'],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -95,6 +95,10 @@ export default {
         'scale-in': {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' }
+        },
+        'glow-pulse': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.7' }
         }
       },
       animation: {
@@ -105,17 +109,24 @@ export default {
         'slide-up': 'slide-up 0.4s ease-out',
         'slide-down': 'slide-down 0.4s ease-out',
         'scale-in': 'scale-in 0.3s ease-out',
+        'glow-pulse': 'glow-pulse 2s ease-in-out infinite'
       },
       transitionTimingFunction: {
         'apple': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
       },
       boxShadow: {
-        'apple': '0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 20px rgba(0, 0, 0, 0.04)',
-        'apple-hover': '0 10px 40px rgba(0, 0, 0, 0.08)',
-        'apple-inner': 'inset 0 0 0 1px rgba(0, 0, 0, 0.05)',
+        'apple': '0 10px 30px rgba(0, 0, 0, 0.25)',
+        'apple-hover': '0 15px 40px rgba(0, 0, 0, 0.35)',
+        'apple-inner': 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
+        'glow': '0 0 15px rgba(191, 100, 255, 0.4), 0 0 30px rgba(191, 100, 255, 0.2)',
       },
       backdropBlur: {
         'apple': '30px',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'cyberpunk-gradient': 'linear-gradient(90deg, hsl(266, 100%, 64%) 0%, hsl(286, 100%, 75%) 100%)',
       },
     }
   },

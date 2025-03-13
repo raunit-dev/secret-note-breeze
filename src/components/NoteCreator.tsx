@@ -36,10 +36,10 @@ const NoteCreator: React.FC = () => {
 
   return (
     <div className="max-w-2xl mx-auto animate-scale-in">
-      <Card className="border-border/50 shadow-apple overflow-hidden">
-        <CardHeader className="bg-primary/5 border-b border-border/30">
+      <Card className="border-border/50 shadow-apple overflow-hidden gradient-border glow-sm">
+        <CardHeader className="bg-gradient-to-r from-primary/10 to-accent/10 border-b border-border/30">
           <div className="flex items-center space-x-2">
-            <LockIcon className="h-5 w-5 text-primary" />
+            <LockIcon className="h-5 w-5 text-primary glow-sm" />
             <CardTitle className="text-lg font-medium">Create a Secret Note</CardTitle>
           </div>
         </CardHeader>
@@ -52,7 +52,7 @@ const NoteCreator: React.FC = () => {
               <Textarea
                 id="note-content"
                 placeholder="Type your secure note here..."
-                className="min-h-[200px] resize-y text-base"
+                className="min-h-[200px] resize-y text-base font-mono border-border/50 bg-muted/40 transition-shadow duration-300 hover:glow-sm focus:glow-sm"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 required
@@ -67,10 +67,10 @@ const NoteCreator: React.FC = () => {
             </div>
           </CardContent>
           
-          <CardFooter className="bg-secondary/30 px-6 py-4 border-t border-border/30">
+          <CardFooter className="bg-muted/30 px-6 py-4 border-t border-border/30">
             <Button 
               type="submit" 
-              className="w-full transition-all duration-300"
+              className="w-full transition-all duration-300 bg-gradient-to-r from-primary to-accent hover:glow-md"
               disabled={isCreating || !content.trim()}
             >
               {isCreating ? 'Creating...' : 'Create Secret Note'}

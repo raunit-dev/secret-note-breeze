@@ -47,7 +47,7 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
           variant="outline" 
           size="sm" 
           onClick={() => handleQuickSelect(1)}
-          className="text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary/30"
+          className="text-sm transition-all duration-200 hover:glow-accent-sm border-border/50"
         >
           1 day
         </Button>
@@ -56,7 +56,7 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
           variant="outline" 
           size="sm" 
           onClick={() => handleQuickSelect(3)}
-          className="text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary/30"
+          className="text-sm transition-all duration-200 hover:glow-accent-sm border-border/50"
         >
           3 days
         </Button>
@@ -65,7 +65,7 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
           variant="outline" 
           size="sm" 
           onClick={() => handleQuickSelect(7)}
-          className="text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary/30"
+          className="text-sm transition-all duration-200 hover:glow-accent-sm border-border/50"
         >
           1 week
         </Button>
@@ -74,7 +74,7 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
           variant="outline" 
           size="sm" 
           onClick={() => handleQuickSelect(30)}
-          className="text-sm transition-all duration-200 hover:bg-primary/5 hover:border-primary/30"
+          className="text-sm transition-all duration-200 hover:glow-accent-sm border-border/50"
         >
           1 month
         </Button>
@@ -87,7 +87,7 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
               <Button
                 variant="outline"
                 className={cn(
-                  "w-full justify-start text-left font-normal",
+                  "w-full justify-start text-left font-normal transition-all duration-200 hover:glow-accent-sm border-border/50",
                   !date && "text-muted-foreground"
                 )}
               >
@@ -95,13 +95,14 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
                 {date ? format(date, "PPP") : <span>Pick a date</span>}
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
+            <PopoverContent className="w-auto p-0 border-border/50 bg-background" align="start">
               <Calendar
                 mode="single"
                 selected={date}
                 onSelect={handleDateChange}
                 initialFocus
                 disabled={(date) => date < new Date()}
+                className="bg-background text-foreground"
               />
             </PopoverContent>
           </Popover>
@@ -112,17 +113,18 @@ const ExpirationPicker: React.FC<ExpirationPickerProps> = ({ date, onDateChange 
             onValueChange={handleTimeChange}
             defaultValue={`${date.getHours()}:${date.getMinutes() === 0 ? '00' : date.getMinutes()}`}
           >
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full border-border/50 transition-all duration-200 hover:glow-accent-sm bg-muted/30">
               <Clock className="mr-2 h-4 w-4" />
               <SelectValue placeholder="Select time" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-background border-border/50">
               {hours.map((hour) => (
                 <React.Fragment key={hour}>
                   {minutes.map((minute) => (
                     <SelectItem 
                       key={`${hour}:${minute}`} 
                       value={`${hour}:${minute}`}
+                      className="hover:bg-muted/50"
                     >
                       {hour.toString().padStart(2, '0')}:{minute.toString().padStart(2, '0')}
                     </SelectItem>
